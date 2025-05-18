@@ -4,10 +4,7 @@ body {
     background: #f2f2f2;
 }
 
-#quiz-container,
-#edit-screen,
-#add-set-screen,
-#edit-set-screen {
+.screen {
     display: none;
 }
 
@@ -79,4 +76,13 @@ button {
 }
 #edit-button:hover {
     background: blueviolet;
+}
+
+#add-question-screen {
+    background: blueviolet;
+    margin: 80px auto;
+    padding: 40px 20px;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }

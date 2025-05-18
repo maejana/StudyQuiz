@@ -6,32 +6,43 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="start-screen">
+<div id="start-screen" class="screen">
     <h1 id="start-title"></h1>
     <button id="start-button"></button>
     <button id="edit-button"></button>
+    <h2>Verfügbare Sets:</h2>
+    <ul id="set-list"></ul>
 </div>
-<div id="quiz-container">
+<div id="quiz-container" class="screen">
     <h1 id="quizTitle"></h1>
     <div id="question"></div>
     <div id="answers"></div>
     <button id="next-button"></button>
     <div id="score"></div>
 </div>
-<div id="edit-screen">
+<div id="edit-screen" class="screen">
     <h1 id="edit-title"></h1>
     <button id="edit-set-button"></button>
     <button id="add-set-button"></button>
 </div>
-<div id="add-set-screen">
+<div id="add-set-screen" class="screen">
     <h1 id="add-set-title"></h1>
     <input type="text" id="set-name" placeholder="Set Name" />
-    <button id="add-save-button"></button>
+    <div id="add-question-screen">
+        <input type="text" id="question-text" placeholder="Question" />
+        <input type="text" id="answer1" placeholder="Answer 1" />
+        <input type="text" id="answer2" placeholder="Answer 2" />
+        <input type="text" id="answer3" placeholder="Answer 3" />
+        <input type="text" id="answer4" placeholder="Answer 4" />
+        <input type="number" id="correct-answer" placeholder="Correct Answer (1-4)" min="1" max="4" />
+        <button id="add-question-button"></button>
+    </div>
+    <button id="save-add-button"></button>
 </div>
-<div id="edit-set-screen">
+<div id="edit-set-screen" class="screen">
     <h1 id="edit-set-title"></h1>
     <input type="text" id="set-name-edit" placeholder="Set Name" />
-    <button id="edit-save-button"></button>
+    <button id="save-edit-button"></button>
 </div>
 <script src="questions.js"></script>
 <script src="script.js"></script>

@@ -6,19 +6,34 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="start-screen">
-        <h1 id="start-title"></h1>
-        <button id="start-button"></button>
-    </div>
-    <div id="quiz-container">
-        <h1 id="quizTitle"></h1>
-        <div id="question"></div>
-        <div id="answers"></div>
-        <button id="next-button"></button>
-        <div id="score"></div>
-    </div>
-
-    <script src="questions.js"></script>
-    <script src="script.js"></script>
+<div id="start-screen">
+    <h1 id="start-title"></h1>
+    <button id="start-button"></button>
+    <button id="edit-button"></button>
+</div>
+<div id="quiz-container">
+    <h1 id="quizTitle"></h1>
+    <div id="question"></div>
+    <div id="answers"></div>
+    <button id="next-button"></button>
+    <div id="score"></div>
+</div>
+<div id="edit-screen">
+    <h1 id="edit-title"></h1>
+    <button id="edit-set-button"></button>
+    <button id="add-set-button"></button>
+</div>
+<div id="add-set-screen">
+    <h1 id="add-set-title"></h1>
+    <input type="text" id="set-name" placeholder="Set Name" />
+    <button id="add-save-button"></button>
+</div>
+<div id="edit-set-screen">
+    <h1 id="edit-set-title"></h1>
+    <input type="text" id="set-name-edit" placeholder="Set Name" />
+    <button id="edit-save-button"></button>
+</div>
+<script src="questions.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

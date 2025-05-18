@@ -4,6 +4,13 @@ body {
     background: #f2f2f2;
 }
 
+#quiz-container,
+#edit-screen,
+#add-set-screen,
+#edit-set-screen {
+    display: none;
+}
+
 #quiz-container {
     background: blueviolet;
     margin: 50px auto;
@@ -26,6 +33,7 @@ button {
     max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+
 }
 
 #start-title {
@@ -44,5 +52,31 @@ button {
 }
 
 #start-button:hover {
+    background: blueviolet;
+}
+
+#answers button {
+    transition: background 0.2s, color 0.2s;
+}
+
+#edit-screen {
+    background: blueviolet;
+    margin: 80px auto;
+    padding: 40px 20px;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+#edit-button {
+    background: blueviolet;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+#edit-button:hover {
     background: blueviolet;
 }

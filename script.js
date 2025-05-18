@@ -1,21 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const texts = {
-        de: {
-            startButton: "Start",
-            startTitle: "Willkommen bei StudyQuiz",
-            quizTitle: "StudyQuiz",
-            nextButton: "Nächste Frage",
-            score: "Punkte: ",
-            editButton: "Neues Set hinzufügen",
-            addSetButton: "Neues Set erstellen",
-            editSetButton: "Set bearbeiten",
-            editSetTitle: "Set bearbeiten",
-            addSetTitle: "Neues Set erstellen",
-            saveEditBtn: "Speichern",
-            saveAddBtn: "Set speichern",
-            addQuestBtn: "Frage hinzufügen"
-        },
-    };
+import { saveSets, loadSets, addSet, addQuestionToSet } from './sets.js';
+import { texts } from './texts.js';
+
+let questions = [];
+
     // Funktion für Screens
     function showScreen(id) {
         document.querySelectorAll('.screen').forEach(div => div.style.display = 'none');
@@ -199,55 +186,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // Set speichern
-    function saveSets(sets) {
-        localStorage.setItem('questionSets', JSON.stringify(sets));
-    }
-
-// Sets laden
-    function loadSets() {
-        const data = localStorage.getItem('questionSets');
-        return data ? JSON.parse(data) : [];
-    }
-
-// Neues Set anlegen
-    function addSet(setName) {
-        const sets = loadSets();
-        sets.push({ setName: setName, questions: [] });
-        saveSets(sets);
-    }
-
-// Frage zu Set hinzufügen
-    function addQuestionToSet(setName, questionObj) {
-        const sets = loadSets();
-        const set = sets.find(s => s.setName === setName);
-        if (set) {
-            set.questions.push(questionObj);
-            saveSets(sets);
-        }
-    }
-
-    let questions = [];
-
-
-
-// Fragen eines Sets laden und anzeigen
-    function loadSetQuestions(setName) {
-        const sets = loadSets();
-        const set = sets.find(s => s.setName === setName);
-
-        if (set) {
-            const questionContainer = document.getElementById("question-container");
-            questionContainer.innerHTML = ""; // Vorherige Fragen entfernen
-
-            set.questions.forEach(q => {
-                const questionEl = document.createElement("div");
-                questionEl.textContent = q.question;
-                questionContainer.appendChild(questionEl);
-            });
-        }
-    }
-
-
-
-});

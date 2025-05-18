@@ -1,7 +1,7 @@
 import { saveSets, loadSets, addSet, addQuestionToSet } from './sets.js';
 import { texts } from './texts.js';
-
 let questions = [];
+document.addEventListener("DOMContentLoaded", () => {
 
     // Funktion für Screens
     function showScreen(id) {
@@ -31,8 +31,6 @@ let questions = [];
     const saveAddButton = document.getElementById("save-add-button");
     const addQuestionScreen = document.getElementById("add-question-screen");
     const addQuestionButton = document.getElementById("add-question-button");
-
-
 
     // Texte setzen
     document.getElementById("start-title").textContent = texts[lang].startTitle;
@@ -184,5 +182,21 @@ let questions = [];
         showScreen("add-set-screen");
     };
 
+    // Fragen eines Sets laden und anzeigen
+    function loadSetQuestions(setName) {
+        const sets = loadSets();
+        const set = sets.find(s => s.setName === setName);
 
+        if (set) {
+            const questionContainer = document.getElementById("question-container");
+            questionContainer.innerHTML = ""; // Vorherige Fragen entfernen
+
+            set.questions.forEach(q => {
+                const questionEl = document.createElement("div");
+                questionEl.textContent = q.question;
+                questionContainer.appendChild(questionEl);
+            });
+        }
+    }
+});
 

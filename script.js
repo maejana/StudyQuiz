@@ -124,11 +124,30 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     startBtn.onclick = () => {
+        const sets = loadSets();
+        if (sets.length === 0) {
+            alert("Bitte erst ein Set anlegen!");
+            return;
+        }
+
+        // Debug-Ausgabe
+        console.log("Erstes Set:", sets[0]);
+        console.log("Fragen im ersten Set:", sets[0].questions);
+
+        questions = sets[0].questions;
+        if (!questions || questions.length === 0) {
+            alert("Dieses Set enthält noch keine Fragen!");
+            return;
+        }
+
+        current = 0;
+        score = 0;
+        scoreEl.textContent = texts[lang].score + "0";
+
         showScreen("quiz-container");
         showQuestion();
         nextBtn.disabled = true;
     };
-
     editBtn.onclick = () => {
         showScreen("edit-screen");
     };

@@ -51,18 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
     showScreen("start-screen");
     displaySets()
 
-    // Sets in einer Liste anzeigen
     function displaySets() {
         const sets = loadSets();
-        const setList = document.getElementById("set-list"); // Ein <ul> oder <select> Element
-        setList.innerHTML = ""; // Vorherige Inhalte entfernen
+        const setList = document.getElementById("set-list");
+        setList.innerHTML = "";
 
         sets.forEach(set => {
-            const listItem = document.createElement("li");
-            listItem.textContent = set.setName;
-            listItem.style.cursor = "pointer";
-            listItem.onclick = () => {
-                questions = set.questions; // Fragen des gewählten Sets laden
+            const btn = document.createElement("button");
+            btn.textContent = set.setName;
+            btn.style.display = "block";
+            btn.style.color = "#fff";
+            btn.style.background = "blueviolet";
+            btn.style.margin = "0.5em 0";
+            btn.onclick = () => {
+                questions = set.questions;
                 current = 0;
                 score = 0;
                 scoreEl.textContent = texts[lang].score + "0";
@@ -70,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 showQuestion();
                 nextBtn.disabled = true;
             };
-            setList.appendChild(listItem);
+            setList.appendChild(btn);
         });
     }
 
@@ -197,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const setName = document.getElementById("set-name").value;
         addQuestionToSet(setName, newQuestion);
 
-        alert("Frage hinzugefügt!");
         showScreen("add-set-screen");
     };
 

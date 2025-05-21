@@ -39,14 +39,17 @@ button {
 }
 
 #start-button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-style: outset;
+    border-radius: 10px;
     background: blueviolet;
     color: #fff;
     font-size: 1.2em;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 10px;
     transition: background 0.2s;
 }
+
 
 #start-button:hover {
     background: blueviolet;
@@ -66,12 +69,14 @@ button {
 }
 
 #edit-button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-style: outset;
+    border-radius: 10px;
     background: blueviolet;
     color: #fff;
     font-size: 1.2em;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 10px;
     transition: background 0.2s;
 }
 #edit-button:hover {
@@ -85,4 +90,18 @@ button {
     max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+input, textarea, select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #3b82f6; /* z.B. ein Blau */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }

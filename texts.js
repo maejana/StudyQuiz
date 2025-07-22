@@ -5,7 +5,7 @@ export const texts = {
         quizTitle: "StudyQuiz",
         nextButton: "Nächste Frage",
         score: "Punkte: ",
-        editButton: "Neues Set hinzufügen",
+        editButton: "Sets bearbeiten",
         addSetButton: "Neues Set erstellen",
         editSetButton: "Set bearbeiten",
         editSetTitle: "Set bearbeiten",

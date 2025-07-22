@@ -162,18 +162,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     saveEditButton.onclick = () => {
         // Hier Logik zum Speichern des bearbeiteten Sets hinzufügen
-        alert("Set gespeichert!");
+        showAlert("Set bearbeitet!"); // Beispiel-Feedback
         showScreen("start-screen");
     };
     saveAddButton.onclick = () => {
         // Hier Logik zum Speichern des neuen Sets hinzufügen
         const setName = document.getElementById("set-name").value.trim();
         if (setName === "") {
-            alert("Bitte einen Namen für das Set eingeben.");
+            showAlert("Bitte einen Namen für das Set eingeben!");
             return;
         }
         addSet(setName);
-        alert("Neues Set gespeichert!");
+        //alert("Neues Set gespeichert!");
         displaySets();
         showScreen("start-screen");
         document.getElementById("set-name").value = ""; // Eingabefeld zurücksetzen)
@@ -195,11 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
             correct: correct
         };
 
-        // Hier muss der Name des aktuellen Sets bekannt sein, z.B.:
         const setName = document.getElementById("set-name").value;
         addQuestionToSet(setName, newQuestion);
 
-        showScreen("add-set-screen");
+        // Eingabefelder leeren, damit direkt eine neue Frage eingegeben werden kann
+        document.getElementById("question-text").value = "";
+        document.getElementById("answer1").value = "";
+        document.getElementById("answer2").value = "";
+        document.getElementById("answer3").value = "";
+        document.getElementById("answer4").value = "";
+        document.getElementById("correct-answer").value = "";
+
+        // Bleibe auf dem add-question-screen
+        // (Kein showScreen-Aufruf nötig)
     };
 
     // Fragen eines Sets laden und anzeigen
@@ -217,6 +225,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 questionContainer.appendChild(questionEl);
             });
         }
+    }
+
+    function showAlert(message) {
+        const alert = document.createElement("div");
+        alert.className = "alert";
+        alert.textContent = message;
+        document.body.appendChild(alert);
+
+        // Nach 3 Sekunden verblassen lassen
+        setTimeout(() => {
+            alert.classList.add("hide");
+        }, 3000);
+
+        // Nach 4 Sekunden komplett entfernen
+        setTimeout(() => {
+            alert.remove();
+        }, 4000);
     }
 });
 

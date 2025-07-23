@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     saveEditButton.onclick = () => {
         // Hier Logik zum Speichern des bearbeiteten Sets hinzufügen
+        saveSets(set); // Beispiel-Set speichern
         showAlert("Set bearbeitet!"); // Beispiel-Feedback
         showScreen("start-screen");
     };

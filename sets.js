@@ -1,6 +1,8 @@
 import {texts} from "./texts.js";
+
 export function saveSets(sets) {
     localStorage.setItem('questionSets', JSON.stringify(sets));
+    require('fs').writeFileSync('sets.json', JSON.stringify(sets, null, 2));
 }
 export function loadSets() {
     const data = localStorage.getItem('questionSets');
